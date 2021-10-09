@@ -39,7 +39,7 @@ click to complete and publish your grade.
 
 The webapp is built with React for the front-end and a REST API
 using the Google Places API on the backend
-(source at https://github.com/mrblog/covidscore-api).
+(source at https://github.com/mrblog/dinesafely-api).
 I’m using Material UI (v4) for the UI framework. Location data, is powered by Google Maps API.
 
 ### Shareable Links
