@@ -14,7 +14,6 @@
     "autosuggest-highlight": "^3.1.1",
     "axios": "^0.21.4",
     "date-fns": "^2.14.0",
-    "firebase": "^9.0.2",
     "lodash": "^4.17.20",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -28,13 +27,27 @@
     "build": "react-scripts build",
     "pretest": "npm run lint",
     "test": "react-scripts test",
+    "test:ci": "react-scripts test --ci --reporters=\"default\" --reporters=\"jest-junit\" --watchAll=false",
     "lint": "./node_modules/.bin/eslint ./src",
     "eject": "react-scripts eject"
+  },
+  "eslintIgnore": [
+    "**/__tests__/**/*"
+  ],
+  "jest-junit": {
+    "suiteName": "jest tests",
+    "outputDirectory": "./test-results"
   },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "enzyme-to-json": "^3.6.2",
+    "jest-junit": "^13.0.0"
+  }
 }
