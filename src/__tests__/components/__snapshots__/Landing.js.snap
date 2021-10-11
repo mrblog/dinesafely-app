@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly when there are no parameters 1`] = `
+<div>
+  <h1>
+    Check and grade the COVID-19 Safety Measures of your favorite places
+  </h1>
+  <Places />
+</div>
+`;
