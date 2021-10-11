@@ -20,7 +20,7 @@ export default function IsAffiliatedCheckbox() {
                 }
                 label="I am affiliated with this place."
             />
-            <FormHelperText>For example, if you're the business owner, an employee, or a contractor, then you are affiliated with the place.</FormHelperText>
+            <FormHelperText>For example, if you&apos;re the business owner, an employee, or a contractor, then you are affiliated with the place.</FormHelperText>
         </div>
     )
 }

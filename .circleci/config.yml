@@ -1,0 +1,61 @@
+version: 2.1
+
+# -------------------------
+#        EXECUTORS
+# -------------------------
+executors:
+  nodejs:
+    docker:
+      - image: circleci/node:16
+        auth:
+          username: mrblog
+          password: $DOCKERHUB_PASSWORD
+
+# -------------------------
+#        COMMANDS
+# -------------------------
+commands:
+  restore_npm_modules:
+    steps:
+      - run: echo "NPM Cache Restore (Preserved for Future Use)"
+      # - restore_cache:
+      #     name: Restore npm Cache
+      #     keys:
+      #       - node-v5-{{ checksum "yarn.lock" }}-{{ .Branch }}
+      #       - node-v5-{{ checksum "yarn.lock" }}
+      #       - node-v5-
+      - run:
+          name: Install dependencies
+          command: npm install
+  save_npm_cache:
+    steps:
+      - run: echo "NPM Cache Save (Preserved for Future Use)"
+      # - save_cache:
+      #     name: Save npm Cache
+      #     key: node-v5-{{ checksum "yarn.lock" }}-{{ .Branch }}
+      #     paths:
+      #       - ~/.cache/yarn
+
+# -------------------------
+#          JOBS
+# -------------------------
+jobs:
+  # -------------------------
+  #          TESTING
+  # -------------------------
+  test_unit:
+    executor: nodejs
+    steps:
+      - checkout
+      - restore_npm_modules
+      - run:
+          name: Run Unit Tests
+          command: npm test
+      - store_test_results:
+          path: test-results
+
+workflows:
+  version: 2
+  build-test:
+    jobs:
+      - test_unit

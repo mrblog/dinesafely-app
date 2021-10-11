@@ -19,7 +19,7 @@ export default function GradeSelect(props) {
                     onChange={handleChange}
                 >
                     {GRADE_CONSTANTS.GRADES.map(menuGrade => (
-                        <MenuItem value={menuGrade.VALUE}>{menuGrade.TITLE} - {menuGrade.DESCRIPTION}</MenuItem>
+                        <MenuItem value={menuGrade.VALUE} key={"grade-"+menuGrade.TITLE}>{menuGrade.TITLE} - {menuGrade.DESCRIPTION}</MenuItem>
                     ))}
                 </Select>
             </FormControl>

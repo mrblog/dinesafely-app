@@ -23,10 +23,10 @@ export default function GetStarted() {
     return (
         <React.Fragment>
             <Typography variant="h5" gutterBottom>
-                Let's get started!
+                Let&apos;s get started!
             </Typography>
             <Typography variant="subtitle1">
-                We're on a mission to get you the most updated information on your favorite places during COVID-19.
+                We&apos;re on a mission to get you the most updated information on your favorite places during COVID-19.
             </Typography>
             <GoogleMapsPlacesAutocomplete
                 onChange={(prediction) => addPlace.updateGooglePlacePrediction(prediction)}

@@ -18,7 +18,7 @@ export default function OptionSelect(props) {
                     value={option}
                     onChange={handleChange}
                 >
-                    {options.map(option => <MenuItem value={option.ID}>{option.TITLE}</MenuItem>)}
+                    {options.map(option => <MenuItem value={option.ID} key={"option-"+option.ID}>{option.TITLE}</MenuItem>)}
                 </Select>
             </FormControl>
         </React.Fragment>

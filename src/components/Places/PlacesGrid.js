@@ -43,7 +43,7 @@ function PlacesEmptyState() {
             You can search for a specific place, a type of food, or leave the search box blank to list prominent restaurants in the specified city.
         </Typography>
         <Typography align="center" color="textSecondary" style={{ marginLeft: 16, marginRight: 16, paddingBottom: 16}}>
-            You can use the ADD A GRADE button to add rates / grades for your favorite places. <b>Dine Safely</b> asks the question "How safe do you feel?"
+            You can use the ADD A GRADE button to add rates / grades for your favorite places. <b>Dine Safely</b> asks the question &quot;How safe do you feel?&quot;
         </Typography>
             <Box mx={"20%"}>
         <List>
@@ -59,7 +59,7 @@ function PlacesEmptyState() {
             </ListItem>
             <ListItem>
                 <Typography color="textSecondary">
-                    C - I'm not comfortable
+                    C - I&apos;m not comfortable
                 </Typography>
             </ListItem>
         </List>

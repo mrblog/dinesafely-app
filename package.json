@@ -20,16 +20,16 @@
     "react-dom": "^16.13.1",
     "react-ga": "^3.3.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^2.1.8"
+    "react-scripts": "^2.1.8",
+    "react-test-renderer": "^16.13.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "pretest": "npm run lint",
     "test": "react-scripts test",
+    "lint": "./node_modules/.bin/eslint ./src",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": [
     ">0.2%",

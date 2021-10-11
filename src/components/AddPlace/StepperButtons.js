@@ -23,7 +23,7 @@ export default function StepperButtons() {
     const classes = useStyles(); 
     const steps = getSteps(); 
 
-    const handleNext = (e) => {
+    const handleNext = () => {
         //  Last step
         if (context.step === steps.length - 1) {
             context.submit()
@@ -33,15 +33,15 @@ export default function StepperButtons() {
         }
     };
 
-    const handleSkip = (e) => {
+    /*const handleSkip = (e) => {
         var nextStep = context.step + 1; 
         if (nextStep >= getSteps().length) {
             nextStep = getSteps().length;
         }
         context.updateStep(nextStep); 
-    }
+    }*/
     
-    const handleBack = (e) => {
+    const handleBack = () => {
         let currentStep = context.step;
         context.updateStep(currentStep - 1); 
     };
