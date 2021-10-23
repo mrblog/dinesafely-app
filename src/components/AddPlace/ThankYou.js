@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import Typography from '@material-ui/core/Typography'; 
 import Button from '@material-ui/core/Button'; 
 import { useHistory } from 'react-router-dom'; 
@@ -17,6 +17,10 @@ export default function ThankYou() {
     const addPlace = useContext(AddPlaceContext);
 
     const handleClick = () => history.go(0); // Reload page
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     return (
         <React.Fragment>

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, {useContext, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { AddPlaceContext} from './context'; 
 import FormControl from '@material-ui/core/FormControl';
@@ -30,6 +30,10 @@ export default function ContactForm() {
     const emailIsValid = email => {
         return email = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     return (
         <React.Fragment>

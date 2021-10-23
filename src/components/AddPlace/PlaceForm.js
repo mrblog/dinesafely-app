@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { AddPlaceContext } from './context';
 import IsAffiliatedCheckbox from './IsAffiliatedCheckbox';
 import NotesTextField from './NotesTextField'; 
@@ -26,6 +26,10 @@ export default function PlaceForm() {
     const handleRatingChange = rating => addPlace.updateRating(rating);
 
     const handleOptionCheckedChange = state => addPlace.updateOptionCheckedState(state);
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     return (
         <React.Fragment>
