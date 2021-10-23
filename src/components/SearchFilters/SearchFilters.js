@@ -12,6 +12,7 @@ import Box from "@material-ui/core/Box";
 export default function SearchFilters() {
     const history = useHistory();
     const [city, setCity] = useState("")
+    const [pending, setPending] = useState(false)
     const [citySelected, setCitySelected] = useState(null)
     const [query, setQuery] = useState("")
     const [options, setOptions] = useState([])
@@ -24,6 +25,13 @@ export default function SearchFilters() {
             initializeFilters();
         },
         []
+    )
+
+    useEffect(() => {
+        if (!loading && pending) {
+            findMatches({}, city)
+        }
+        }, [loading]
     )
 
     const initializeFilters = () => {
@@ -56,17 +64,40 @@ export default function SearchFilters() {
 
     const findMatches = (event, value) => {
         setCity(value)
+        setCitySelected(null)
         if (!value) {
             return
         }
-        if (loading) return;
-
-        setLoading(true);
+        if (loading) {
+            console.log("pending: "+value)
+            setPending(true)
+            return;
+        }
+        setPending(false)
+        setLoading(true)
 
         api.getCities(value).then(cities => {
             console.log(cities)
             setOptions(cities)
-            setLoading(false)
+            if (cities.length === 0) {
+                console.log("match: "+value+ " = "+JSON.stringify(value.match(/[^ ].* [a-z][a-z]$/i)))
+            }
+            if (cities.length === 0 && value.match(/[^ ].* [a-z][a-z]$/i)) {
+                api.getCities(value.replace(/^([^ ].*) ([a-z][a-z])$/i, '$1, $2')).then(oneCity => {
+                    console.log(value.replace(/^([^ ].*) ([a-z][a-z])$/i, '$1, $2')+ " matched "+ JSON.stringify(oneCity))
+                    if (oneCity.length === 1) {
+                        setCity(oneCity[0].label)
+                        setCitySelected(oneCity[0])
+                    }
+                    setLoading(false)
+                })
+                    .catch(error => {
+                        console.log("Error loading cities: ", error)
+                        setLoading(false)
+                    })
+            } else {
+                setLoading(false)
+            }
         })
             .catch(error => {
                 console.log("Error loading cities: ", error)
